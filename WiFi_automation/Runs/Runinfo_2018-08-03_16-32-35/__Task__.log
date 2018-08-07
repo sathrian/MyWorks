@@ -1,0 +1,919 @@
+08-03-18 16:32:36 TCH_AUTO : INFO     : 
+08-03-18 16:32:36 TCH_AUTO : INFO     : ##############################################################################################################
+08-03-18 16:32:36 TCH_AUTO : INFO     : ## Voip_test TestCase start                                                                                 ##
+08-03-18 16:32:36 TCH_AUTO : INFO     : ##############################################################################################################
+08-03-18 16:32:36 TCH_AUTO : INFO     : 
+08-03-18 16:32:36 TCH_AUTO : INFO     : ##############################################################################################################
+08-03-18 16:32:36 TCH_AUTO : INFO     : ## Common Setup                                                                                             ##
+08-03-18 16:32:36 TCH_AUTO : INFO     : ##############################################################################################################
+08-03-18 16:32:36 TCH_AUTO : INFO     : 
+08-03-18 16:32:36 TCH_AUTO : INFO     : ##############################################################################################################
+08-03-18 16:32:36 TCH_AUTO : INFO     : ## Load Testbed file                                                                                        ##
+08-03-18 16:32:36 TCH_AUTO : INFO     : ##############################################################################################################
+08-03-18 16:32:36 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:36 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:36 TCH_AUTO : INFO     : | Topology file: /auto/WiFi_automation/topo/topo.yaml                                                        |
+08-03-18 16:32:36 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:36 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:36 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:36 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:36 TCH_AUTO : INFO     : | Topology data:                                                                                             |
+08-03-18 16:32:36 TCH_AUTO : INFO     : | --------------                                                                                             |
+08-03-18 16:32:36 TCH_AUTO : INFO     : |  Munch({'lnx2': Munch({'username': 'phone', 'hostname': 'containter2', 'platform': 'linux', 'console':     |
+08-03-18 16:32:36 TCH_AUTO : INFO     : | 'ssh 10.78.192.121 22', 'wavFile': 'Tryst-with-destiny-mono.wav', 'interface': Munch({'onboardEthernet':   |
+08-03-18 16:32:36 TCH_AUTO : INFO     : | Munch({'ip': '10.78.192.121', 'mask': '255.255.255.0'}), 'pciEthernet1': Munch({'ip': '1.1.0.1', 'mask':   |
+08-03-18 16:32:36 TCH_AUTO : INFO     : | '255.255.255.0'})}), 'password': 'phone'}), 'ExeServer': Munch({'interface': Munch({'controlBridge':       |
+08-03-18 16:32:36 TCH_AUTO : INFO     : | Munch({'ip': '10.78.192.119', 'mask': '255.255.192.0'})}), 'username': 'cpesit', 'hostname': 'Exe-server', |
+08-03-18 16:32:36 TCH_AUTO : INFO     : | 'password': 'cpesit'}), 'lnx1': Munch({'username': 'phone', 'hostname': 'containter1', 'platform':         |
+08-03-18 16:32:36 TCH_AUTO : INFO     : | 'linux', 'console': 'ssh 10.78.192.120 22', 'wavFile': 'Tryst-with-destiny-mono.wav', 'interface':         |
+08-03-18 16:32:36 TCH_AUTO : INFO     : | Munch({'onboardEthernet': Munch({'ip': '10.78.192.120', 'mask': '255.255.255.0'}), 'pciEthernet2':         |
+08-03-18 16:32:36 TCH_AUTO : INFO     : | Munch({'ip': '192.168.0.10', 'mask': '255.255.255.0'})}), 'password': 'phone'})})                          |
+08-03-18 16:32:36 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:36 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:36 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:36 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:36 TCH_AUTO : INFO     : | Connect to devices                                                                                         |
+08-03-18 16:32:36 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:36 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:36 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:36 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:36 TCH_AUTO : INFO     : | uname -a                                                                                                   |
+08-03-18 16:32:36 TCH_AUTO : INFO     : | Linux containter1 4.9.0-6-amd64 #1 SMP Debian 4.9.82-1+deb9u3 (2018-03-02) x86_64 GNU/Linux                |
+08-03-18 16:32:36 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:36 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | uname -a                                                                                                   |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | Linux containter2 4.9.0-6-amd64 #1 SMP Debian 4.9.82-1+deb9u3 (2018-03-02) x86_64 GNU/Linux                |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | uname -a                                                                                                   |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | Linux containter1 4.9.0-6-amd64 #1 SMP Debian 4.9.82-1+deb9u3 (2018-03-02) x86_64 GNU/Linux                |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | uname -a                                                                                                   |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | Linux containter2 4.9.0-6-amd64 #1 SMP Debian 4.9.82-1+deb9u3 (2018-03-02) x86_64 GNU/Linux                |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : 
+08-03-18 16:32:37 TCH_AUTO : INFO     : ##############################################################################################################
+08-03-18 16:32:37 TCH_AUTO : INFO     : ## Check validations in two linux machines                                                                  ##
+08-03-18 16:32:37 TCH_AUTO : INFO     : ##############################################################################################################
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | killall pulseaudio                                                                                         |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | pulseaudio: no process found                                                                               |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | killall pulseaudio                                                                                         |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | pulseaudio: no process found                                                                               |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | pulseaudio -D                                                                                              |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | pulseaudio -D                                                                                              |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | pactl list sources                                                                                         |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | Source #0                                                                                                  |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         State: IDLE                                                                                        |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Name: auto_null.monitor                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Description: Monitor of Dummy Output                                                               |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Driver: module-null-sink.c                                                                         |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Sample Specification: s16le 2ch 44100Hz                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Channel Map: front-left,front-right                                                                |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Owner Module: 10                                                                                   |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Mute: no                                                                                           |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Volume: front-left: 65536 / 100% / 0.00 dB,   front-right: 65536 / 100% / 0.00 dB                  |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 balance 0.00                                                                               |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Base Volume: 65536 / 100% / 0.00 dB                                                                |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Monitor of Sink: auto_null                                                                         |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Latency: 0 usec, configured 2000000 usec                                                           |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Flags: DECIBEL_VOLUME LATENCY                                                                      |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Properties:                                                                                        |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 device.description = "Monitor of Dummy Output"                                             |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 device.class = "monitor"                                                                   |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 device.icon_name = "audio-input-microphone"                                                |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Formats:                                                                                           |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 pcm                                                                                        |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | Name: auto_null.monitor - present as expected in containter1                                               |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | pactl list sources                                                                                         |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | Source #0                                                                                                  |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         State: IDLE                                                                                        |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Name: auto_null.monitor                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Description: Monitor of Dummy Output                                                               |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Driver: module-null-sink.c                                                                         |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Sample Specification: s16le 2ch 44100Hz                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Channel Map: front-left,front-right                                                                |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Owner Module: 10                                                                                   |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Mute: no                                                                                           |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Volume: front-left: 65536 / 100% / 0.00 dB,   front-right: 65536 / 100% / 0.00 dB                  |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 balance 0.00                                                                               |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Base Volume: 65536 / 100% / 0.00 dB                                                                |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Monitor of Sink: auto_null                                                                         |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Latency: 0 usec, configured 2000000 usec                                                           |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Flags: DECIBEL_VOLUME LATENCY                                                                      |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Properties:                                                                                        |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 device.description = "Monitor of Dummy Output"                                             |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 device.class = "monitor"                                                                   |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 device.icon_name = "audio-input-microphone"                                                |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Formats:                                                                                           |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 pcm                                                                                        |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | Name: auto_null.monitor - present as expected in containter2                                               |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | pactl list sinks                                                                                           |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | Sink #0                                                                                                    |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         State: IDLE                                                                                        |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Name: auto_null                                                                                    |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Description: Dummy Output                                                                          |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Driver: module-null-sink.c                                                                         |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Sample Specification: s16le 2ch 44100Hz                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Channel Map: front-left,front-right                                                                |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Owner Module: 10                                                                                   |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Mute: no                                                                                           |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Volume: front-left: 65536 / 100% / 0.00 dB,   front-right: 65536 / 100% / 0.00 dB                  |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 balance 0.00                                                                               |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Base Volume: 65536 / 100% / 0.00 dB                                                                |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Monitor Source: auto_null.monitor                                                                  |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Latency: 2151251 usec, configured 2000000 usec                                                     |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Flags: DECIBEL_VOLUME LATENCY                                                                      |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Properties:                                                                                        |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 device.description = "Dummy Output"                                                        |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 device.class = "abstract"                                                                  |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 device.icon_name = "audio-card"                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Formats:                                                                                           |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 pcm                                                                                        |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | Driver: module-null-sink.c - present as expected in containter1                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | pactl list sinks                                                                                           |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | Sink #0                                                                                                    |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         State: IDLE                                                                                        |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Name: auto_null                                                                                    |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Description: Dummy Output                                                                          |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Driver: module-null-sink.c                                                                         |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Sample Specification: s16le 2ch 44100Hz                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Channel Map: front-left,front-right                                                                |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Owner Module: 10                                                                                   |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Mute: no                                                                                           |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Volume: front-left: 65536 / 100% / 0.00 dB,   front-right: 65536 / 100% / 0.00 dB                  |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 balance 0.00                                                                               |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Base Volume: 65536 / 100% / 0.00 dB                                                                |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Monitor Source: auto_null.monitor                                                                  |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Latency: 2169131 usec, configured 2000000 usec                                                     |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Flags: DECIBEL_VOLUME LATENCY                                                                      |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Properties:                                                                                        |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 device.description = "Dummy Output"                                                        |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 device.class = "abstract"                                                                  |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 device.icon_name = "audio-card"                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |         Formats:                                                                                           |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                 pcm                                                                                        |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | Driver: module-null-sink.c - present as expected in containter2                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : 
+08-03-18 16:32:37 TCH_AUTO : INFO     : ##############################################################################################################
+08-03-18 16:32:37 TCH_AUTO : INFO     : ## create virtual mic/speaker on two linux machines                                                         ##
+08-03-18 16:32:37 TCH_AUTO : INFO     : ##############################################################################################################
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | pactl load-module module-null-sink sink_name=fakemic                                                       |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | 19                                                                                                         |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | pactl load-module module-null-sink sink_name=fakemic                                                       |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | 19                                                                                                         |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | pactl load-module module-null-sink sink_name=fakespeaker                                                   |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | 20                                                                                                         |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | pactl load-module module-null-sink sink_name=fakespeaker                                                   |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | 20                                                                                                         |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | pactl list short sources                                                                                   |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | 1       fakemic.monitor module-null-sink.c      s16le 2ch 44100Hz       IDLE                               |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | 2       fakespeaker.monitor     module-null-sink.c      s16le 2ch 44100Hz       IDLE                       |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | fakemic.monitor - present as expected in containter1                                                       |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | fakespeaker.monitor - present as expected in containter1                                                   |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | pactl list short sources                                                                                   |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | 1       fakemic.monitor module-null-sink.c      s16le 2ch 44100Hz       IDLE                               |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | 2       fakespeaker.monitor     module-null-sink.c      s16le 2ch 44100Hz       IDLE                       |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | fakemic.monitor - present as expected in containter2                                                       |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | fakespeaker.monitor - present as expected in containter2                                                   |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : 
+08-03-18 16:32:37 TCH_AUTO : INFO     : ##############################################################################################################
+08-03-18 16:32:37 TCH_AUTO : INFO     : ## TestRun - Start                                                                                          ##
+08-03-18 16:32:37 TCH_AUTO : INFO     : ##############################################################################################################
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | rm -f received.wav                                                                                         |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | killall linphone linphonec                                                                                 |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | linphone: no process found                                                                                 |
+08-03-18 16:32:37 TCH_AUTO : INFO     : | linphonec: no process found                                                                                |
+08-03-18 16:32:37 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:37 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | linphonec                                                                                                  |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | Ready                                                                                                      |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | Warning: video is disabled in , use -V or -C or -D to enable.                                              |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | Linphone started successfully in containter1                                                               |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |  soundcard use files                                                                                       |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | Using wav files instead of soundcard.                                                                      |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | Linphone started Using wav files instead of soundcard in containter1                                       |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | rm -f received.wav                                                                                         |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | killall linphone linphonec                                                                                 |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | linphone: no process found                                                                                 |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | linphonec: no process found                                                                                |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | linphonec                                                                                                  |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | Ready                                                                                                      |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | Warning: video is disabled in , use -V or -C or -D to enable.                                              |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | Linphone started successfully in containter2                                                               |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |  soundcard use files                                                                                       |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | Using wav files instead of soundcard.                                                                      |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | Linphone started Using wav files instead of soundcard in containter2                                       |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | sox --i -D Tryst-with-destiny-mono.wav                                                                     |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | 280.999188                                                                                                 |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |  autoanswer enable                                                                                         |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | Auto answer enabled.                                                                                       |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | Auto answer enabled successfully in containter1                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |  call sip:10.78.192.120                                                                                    |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | Establishing call id to <sip:10.78.192.120>, assigned id 1                                                 |
+08-03-18 16:32:38 TCH_AUTO : INFO     : | Contacting <sip:10.78.192.120>                                                                             |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |  calls                                                                                                     |
+08-03-18 16:32:38 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:38 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:38 TCH_AUTO : INFO     : 
+08-03-18 16:32:38 TCH_AUTO : ERROR    : >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+08-03-18 16:32:38 TCH_AUTO : ERROR    : >> .*<sip:10.78.192.120>.*StreamsRunning - absent which is not expected in containter2                      >>
+08-03-18 16:32:38 TCH_AUTO : ERROR    : >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+08-03-18 16:32:43 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:43 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:43 TCH_AUTO : INFO     : |  Remote ringing...                                                                                         |
+08-03-18 16:32:43 TCH_AUTO : INFO     : | linphonec> Call 1 to <sip:10.78.192.120> ringing.                                                          |
+08-03-18 16:32:43 TCH_AUTO : INFO     : | Call 1 wicalls                                                                                             |
+08-03-18 16:32:43 TCH_AUTO : INFO     : |  Remote ringing...                                                                                         |
+08-03-18 16:32:43 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:43 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:43 TCH_AUTO : INFO     : 
+08-03-18 16:32:43 TCH_AUTO : ERROR    : >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+08-03-18 16:32:43 TCH_AUTO : ERROR    : >> .*<sip:10.78.192.120>.*StreamsRunning - absent which is not expected in containter2                      >>
+08-03-18 16:32:43 TCH_AUTO : ERROR    : >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+08-03-18 16:32:48 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:48 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:48 TCH_AUTO : INFO     : |  calls                                                                                                     |
+08-03-18 16:32:48 TCH_AUTO : INFO     : | Call states                                                                                                |
+08-03-18 16:32:48 TCH_AUTO : INFO     : | Id |            Destination              |      State      calls                                           |
+08-03-18 16:32:48 TCH_AUTO : INFO     : | Call states                                                                                                |
+08-03-18 16:32:48 TCH_AUTO : INFO     : | Id __PIPE__            Destination              __PIPE__      State      __PIPE__    Flags   __PIPE__      |
+08-03-18 16:32:48 TCH_AUTO : INFO     : | ------------------------------------------------------------------------                                   |
+08-03-18 16:32:48 TCH_AUTO : INFO     : | 1  __PIPE__ <sip:10.78.192.120>                 __PIPE__ StreamsRunning  __PIPE__                          |
+08-03-18 16:32:48 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:48 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:48 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:48 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:48 TCH_AUTO : INFO     : | .*<sip:10.78.192.120>.*StreamsRunning - present as expected in containter2                                 |
+08-03-18 16:32:48 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:48 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:48 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:48 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:48 TCH_AUTO : INFO     : |  carecord received.wav                                                                                     |
+08-03-18 16:32:48 TCH_AUTO : INFO     : |  calls                                                                                                     |
+08-03-18 16:32:48 TCH_AUTO : INFO     : | Call states                                                                                                |
+08-03-18 16:32:48 TCH_AUTO : INFO     : | Id __PIPE__            Destination              __PIPE__      State      __PIPE__    Flags   __PIPE__      |
+08-03-18 16:32:48 TCH_AUTO : INFO     : | ------------------------------------------------------------------------                                   |
+08-03-18 16:32:48 TCH_AUTO : INFO     : | 1  __PIPE__ <sip:10.78.192.120>                 __PIPE__ StreamsRunning  __PIPE__                          |
+08-03-18 16:32:48 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:48 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:49 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:49 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:49 TCH_AUTO : INFO     : |  Call 1 play Tryst-with-destiny-mono.wav                                                                   |
+08-03-18 16:32:49 TCH_AUTO : INFO     : |  Call 1 with <sip:phone@10.78.192.121> connected.                                                          |
+08-03-18 16:32:49 TCH_AUTO : INFO     : | Media streams established with <sip:phone@10.78.192.121> for call 1 (audio).                               |
+08-03-18 16:32:49 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:49 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:32:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:51 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:32:51 TCH_AUTO : INFO     : | -rw------- 1 phone phone 372480 Aug  3 11:02 received.wav                                                  |
+08-03-18 16:32:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:32:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:01 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:33:01 TCH_AUTO : INFO     : | -rw------- 1 phone phone 1681920 Aug  3 11:03 received.wav                                                 |
+08-03-18 16:33:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:11 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:33:11 TCH_AUTO : INFO     : | -rw------- 1 phone phone 2643840 Aug  3 11:03 received.wav                                                 |
+08-03-18 16:33:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:11 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:33:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:21 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:33:21 TCH_AUTO : INFO     : | -rw------- 1 phone phone 3603840 Aug  3 11:03 received.wav                                                 |
+08-03-18 16:33:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:21 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:33:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:31 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:33:31 TCH_AUTO : INFO     : | -rw------- 1 phone phone 4565760 Aug  3 11:03 received.wav                                                 |
+08-03-18 16:33:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:31 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:33:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:41 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:33:41 TCH_AUTO : INFO     : | -rw------- 1 phone phone 5527680 Aug  3 11:03 received.wav                                                 |
+08-03-18 16:33:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:41 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:33:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:51 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:33:51 TCH_AUTO : INFO     : | -rw------- 1 phone phone 6487680 Aug  3 11:03 received.wav                                                 |
+08-03-18 16:33:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:33:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:51 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:33:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:33:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:01 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:34:01 TCH_AUTO : INFO     : | -rw------- 1 phone phone 7449600 Aug  3 11:04 received.wav                                                 |
+08-03-18 16:34:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:01 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:34:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:11 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:34:11 TCH_AUTO : INFO     : | -rw------- 1 phone phone 8411520 Aug  3 11:04 received.wav                                                 |
+08-03-18 16:34:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:11 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:34:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:21 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:34:21 TCH_AUTO : INFO     : | -rw------- 1 phone phone 9371520 Aug  3 11:04 received.wav                                                 |
+08-03-18 16:34:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:21 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:34:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:31 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:34:31 TCH_AUTO : INFO     : | -rw------- 1 phone phone 10333440 Aug  3 11:04 received.wav                                                |
+08-03-18 16:34:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:31 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:34:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:41 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:34:41 TCH_AUTO : INFO     : | -rw------- 1 phone phone 11295360 Aug  3 11:04 received.wav                                                |
+08-03-18 16:34:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:41 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:34:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:51 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:34:51 TCH_AUTO : INFO     : | -rw------- 1 phone phone 12257280 Aug  3 11:04 received.wav                                                |
+08-03-18 16:34:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:34:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:51 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:34:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:34:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:01 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:35:01 TCH_AUTO : INFO     : | -rw------- 1 phone phone 13219200 Aug  3 11:05 received.wav                                                |
+08-03-18 16:35:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:01 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:35:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:11 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:35:11 TCH_AUTO : INFO     : | -rw------- 1 phone phone 14179200 Aug  3 11:05 received.wav                                                |
+08-03-18 16:35:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:11 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:35:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:21 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:35:21 TCH_AUTO : INFO     : | -rw------- 1 phone phone 15141120 Aug  3 11:05 received.wav                                                |
+08-03-18 16:35:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:21 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:35:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:31 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:35:31 TCH_AUTO : INFO     : | -rw------- 1 phone phone 16103040 Aug  3 11:05 received.wav                                                |
+08-03-18 16:35:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:31 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:35:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:41 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:35:41 TCH_AUTO : INFO     : | -rw------- 1 phone phone 17064960 Aug  3 11:05 received.wav                                                |
+08-03-18 16:35:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:41 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:35:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:51 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:35:51 TCH_AUTO : INFO     : | -rw------- 1 phone phone 18026880 Aug  3 11:05 received.wav                                                |
+08-03-18 16:35:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:35:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:51 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:35:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:35:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:01 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:36:01 TCH_AUTO : INFO     : | -rw------- 1 phone phone 18986880 Aug  3 11:06 received.wav                                                |
+08-03-18 16:36:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:01 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:36:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:11 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:36:11 TCH_AUTO : INFO     : | -rw------- 1 phone phone 19948800 Aug  3 11:06 received.wav                                                |
+08-03-18 16:36:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:11 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:36:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:21 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:36:21 TCH_AUTO : INFO     : | -rw------- 1 phone phone 20910720 Aug  3 11:06 received.wav                                                |
+08-03-18 16:36:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:21 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:36:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:31 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:36:31 TCH_AUTO : INFO     : | -rw------- 1 phone phone 21872640 Aug  3 11:06 received.wav                                                |
+08-03-18 16:36:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:31 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:36:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:41 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:36:41 TCH_AUTO : INFO     : | -rw------- 1 phone phone 22834560 Aug  3 11:06 received.wav                                                |
+08-03-18 16:36:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:41 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:36:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:51 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:36:51 TCH_AUTO : INFO     : | -rw------- 1 phone phone 23796480 Aug  3 11:06 received.wav                                                |
+08-03-18 16:36:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:36:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:51 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:36:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:36:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:01 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:37:01 TCH_AUTO : INFO     : | -rw------- 1 phone phone 24756480 Aug  3 11:07 received.wav                                                |
+08-03-18 16:37:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:01 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:37:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:11 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:37:11 TCH_AUTO : INFO     : | -rw------- 1 phone phone 25718400 Aug  3 11:07 received.wav                                                |
+08-03-18 16:37:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:11 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:37:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:21 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:37:21 TCH_AUTO : INFO     : | -rw------- 1 phone phone 26680320 Aug  3 11:07 received.wav                                                |
+08-03-18 16:37:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:21 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:37:21 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:21 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:31 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:37:31 TCH_AUTO : INFO     : | -rw------- 1 phone phone 27509760 Aug  3 11:07 received.wav                                                |
+08-03-18 16:37:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:31 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:37:31 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:31 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:41 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:37:41 TCH_AUTO : INFO     : | -rw------- 1 phone phone 27509760 Aug  3 11:07 received.wav                                                |
+08-03-18 16:37:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:41 TCH_AUTO : INFO     : | Playback and recording in progress                                                                         |
+08-03-18 16:37:41 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:41 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:51 TCH_AUTO : INFO     : | ls -l received.wav                                                                                         |
+08-03-18 16:37:51 TCH_AUTO : INFO     : | -rw------- 1 phone phone 27509760 Aug  3 11:07 received.wav                                                |
+08-03-18 16:37:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:51 TCH_AUTO : INFO     : | Playback and recording completed                                                                           |
+08-03-18 16:37:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:51 TCH_AUTO : INFO     : |  terminate                                                                                                 |
+08-03-18 16:37:51 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:51 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:56 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:37:56 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:56 TCH_AUTO : INFO     : |  Call 1 with <sip:phone@10.78.192.121> ended (No error).                                                   |
+08-03-18 16:37:56 TCH_AUTO : INFO     : | linphonec> quit                                                                                            |
+08-03-18 16:37:56 TCH_AUTO : INFO     : |  Call 1 with <sip:phone@10.78.192.121> ended (No error).                                                   |
+08-03-18 16:37:56 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:37:56 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:01 TCH_AUTO : INFO     : |  record received.wav                                                                                       |
+08-03-18 16:38:01 TCH_AUTO : INFO     : | linphonec> Call terminated.                                                                                |
+08-03-18 16:38:01 TCH_AUTO : INFO     : | linphonec> Call 1 with <sip:1terminate                                                                     |
+08-03-18 16:38:01 TCH_AUTO : INFO     : |  record received.wav                                                                                       |
+08-03-18 16:38:01 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:01 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:06 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:06 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:06 TCH_AUTO : INFO     : |  terminate                                                                                                 |
+08-03-18 16:38:06 TCH_AUTO : INFO     : | No active calls                                                                                            |
+08-03-18 16:38:06 TCH_AUTO : INFO     : | linphonec> quit                                                                                            |
+08-03-18 16:38:06 TCH_AUTO : INFO     : |  terminate                                                                                                 |
+08-03-18 16:38:06 TCH_AUTO : INFO     : | No active calls                                                                                            |
+08-03-18 16:38:06 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:06 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:11 TCH_AUTO : INFO     : | sshpass -p cpesit scp -o StrictHostKeyChecking=no received.wav cpesit@10.78.192.119:~/received.wav         |
+08-03-18 16:38:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:11 TCH_AUTO : INFO     : | File transferred successfully from containter1                                                             |
+08-03-18 16:38:11 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:11 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:23 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:23 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:23 TCH_AUTO : INFO     : | Match - 0.902578592243, Time = 15.00549                                                                    |
+08-03-18 16:38:23 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:23 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:23 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:23 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:23 TCH_AUTO : INFO     : | Match - 0.902578592243, Time = 15.0055                                                                     |
+08-03-18 16:38:23 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:23 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:23 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:23 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:23 TCH_AUTO : INFO     : | Match - 0.902578592243, Time = 15.00551                                                                    |
+08-03-18 16:38:23 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:23 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:23 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:23 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:23 TCH_AUTO : INFO     : | Match - 0.904996530206, Time = 15.00552                                                                    |
+08-03-18 16:38:23 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:23 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:23 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:23 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:23 TCH_AUTO : INFO     : | Match - 0.904996530206, Time = 15.00553                                                                    |
+08-03-18 16:38:23 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:23 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:23 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:23 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:23 TCH_AUTO : INFO     : | Match - 0.905158120194, Time = 15.00554                                                                    |
+08-03-18 16:38:23 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:23 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:23 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:23 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:23 TCH_AUTO : INFO     : | Match - 0.905158120194, Time = 15.00555                                                                    |
+08-03-18 16:38:23 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:23 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:23 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:23 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:23 TCH_AUTO : INFO     : | Match - 0.902705595262, Time = 15.00556                                                                    |
+08-03-18 16:38:23 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:23 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:23 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:38:23 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:23 TCH_AUTO : INFO     : | Match - 0.902705595262, Time = 15.00557                                                                    |
+08-03-18 16:38:23 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:38:23 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : | MAX Match - 0.905158120194                                                                                 |
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : | MAX-Time-lag - [0.0055399999999999425, 0.005549999999999942]                                               |
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : | Corelation of 95.0 with lag - 0.005545%                                                                    |
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : | Deviated found between source and destination - 5.0%                                                       |
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : 
+08-03-18 16:39:18 TCH_AUTO : INFO     : ##############################################################################################################
+08-03-18 16:39:18 TCH_AUTO : INFO     : ## Common CleanUP - Start                                                                                   ##
+08-03-18 16:39:18 TCH_AUTO : INFO     : ##############################################################################################################
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : |  quit                                                                                                      |
+08-03-18 16:39:18 TCH_AUTO : INFO     : | Terminating...                                                                                             |
+08-03-18 16:39:18 TCH_AUTO : INFO     : | phone@containter1:~$ killall pulseaudio                                                                    |
+08-03-18 16:39:18 TCH_AUTO : INFO     : |  quit                                                                                                      |
+08-03-18 16:39:18 TCH_AUTO : INFO     : | Terminating...                                                                                             |
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : |  quit                                                                                                      |
+08-03-18 16:39:18 TCH_AUTO : INFO     : | Terminating...                                                                                             |
+08-03-18 16:39:18 TCH_AUTO : INFO     : | phone@containter2:~$ killall pulseaudio                                                                    |
+08-03-18 16:39:18 TCH_AUTO : INFO     : |  quit                                                                                                      |
+08-03-18 16:39:18 TCH_AUTO : INFO     : | Terminating...                                                                                             |
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : | Clear all ssh console sessions                                                                             |
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : | Disconnecting from containter1                                                                             |
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : | Disconnecting from containter2                                                                             |
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : | Disconnecting from containter1                                                                             |
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : | Disconnecting from containter2                                                                             |
+08-03-18 16:39:18 TCH_AUTO : INFO     : |                                                                                                            |
+08-03-18 16:39:18 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-03-18 16:39:18 TCH_AUTO : INFO     : 
+08-03-18 16:39:18 TCH_AUTO : INFO     : ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+08-03-18 16:39:18 TCH_AUTO : INFO     : :: Logs will be available at below link                                                                     ::
+08-03-18 16:39:18 TCH_AUTO : INFO     : ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+08-03-18 16:39:18 TCH_AUTO : INFO     : 
+08-03-18 16:39:18 TCH_AUTO : INFO     : ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+08-03-18 16:39:18 TCH_AUTO : INFO     : :: http://10.78.192.119/testruns/Runinfo_2018-08-03_16-32-35/__Task__.log                                   ::
+08-03-18 16:39:18 TCH_AUTO : INFO     : ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+08-03-18 16:39:18 TCH_AUTO : INFO     : 
+08-03-18 16:39:18 TCH_AUTO : INFO     : ##############################################################################################################
+08-03-18 16:39:18 TCH_AUTO : INFO     : ## Voip_test TestCase End                                                                                   ##
+08-03-18 16:39:18 TCH_AUTO : INFO     : ##############################################################################################################

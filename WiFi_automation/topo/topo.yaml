@@ -1,0 +1,62 @@
+#Testbed file for TCH automation
+ExeServer:
+    hostname: Exe-server
+    username: cpesit
+    password: cpesit
+    interface:
+        controlBridge:
+            ip: 10.78.192.119
+            mask: 255.255.192.0
+            
+lnx1: 
+    hostname: containter1
+    platform: linux
+    console: ssh 10.78.192.120 22
+    password: phone
+    username: phone
+    wavFile: Tryst-with-destiny-mono.wav
+    interface:
+        pciEthernet1:
+            ip: 1.1.0.2
+            mask: 255.255.255.0
+        onboardEthernet:
+            ip: 10.78.192.120
+            mask: 255.255.255.0
+        
+lnx2:
+    hostname: containter2
+    platform: linux
+    console: ssh 10.78.192.121 22
+    password: phone
+    username: phone
+    wavFile: Tryst-with-destiny-mono.wav
+    interface:
+        pciEthernet2:
+            ip: 192.168.0.10
+            mask: 255.255.255.0
+        onboardEthernet:
+            ip: 10.78.192.121
+            mask: 255.255.255.0
+            
+        
+# AP:
+    # hostname:Technicolor
+    # platform:ios
+    # console:
+    # mgmt_url:
+    # username:
+    # password:
+    # ap_25ghz:
+    # ap_5ghz:
+    # lan:
+        # ipv4:
+        # mask:
+        # ipv6:
+        # prefix:
+    # wan:
+        # ipv4:
+        # mask:
+        # gw:
+        # ipv6:
+        # prefix:
+        

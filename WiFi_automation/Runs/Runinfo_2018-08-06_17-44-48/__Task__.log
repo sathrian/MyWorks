@@ -1,0 +1,476 @@
+08-06-18 17:44:49 TCH_AUTO : INFO     : 
+08-06-18 17:44:49 TCH_AUTO : INFO     : ##############################################################################################################
+08-06-18 17:44:49 TCH_AUTO : INFO     : ## Voip_test TestCase start                                                                                 ##
+08-06-18 17:44:49 TCH_AUTO : INFO     : ##############################################################################################################
+08-06-18 17:44:49 TCH_AUTO : INFO     : 
+08-06-18 17:44:49 TCH_AUTO : INFO     : ##############################################################################################################
+08-06-18 17:44:49 TCH_AUTO : INFO     : ## Common Setup                                                                                             ##
+08-06-18 17:44:49 TCH_AUTO : INFO     : ##############################################################################################################
+08-06-18 17:44:49 TCH_AUTO : INFO     : 
+08-06-18 17:44:49 TCH_AUTO : INFO     : ##############################################################################################################
+08-06-18 17:44:49 TCH_AUTO : INFO     : ## Load Testbed file                                                                                        ##
+08-06-18 17:44:49 TCH_AUTO : INFO     : ##############################################################################################################
+08-06-18 17:44:49 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:49 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:49 TCH_AUTO : INFO     : | Topology file: /auto/WiFi_automation/topo/topo.yaml                                                        |
+08-06-18 17:44:49 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:49 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:49 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:49 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:49 TCH_AUTO : INFO     : | Topology data:                                                                                             |
+08-06-18 17:44:49 TCH_AUTO : INFO     : | --------------                                                                                             |
+08-06-18 17:44:49 TCH_AUTO : INFO     : |  Munch({'lnx1': Munch({'username': 'phone', 'console': 'ssh 10.78.192.120 22', 'interface':                |
+08-06-18 17:44:49 TCH_AUTO : INFO     : | Munch({'onboardEthernet': Munch({'ip': '10.78.192.120', 'mask': '255.255.255.0'}), 'pciEthernet1':         |
+08-06-18 17:44:49 TCH_AUTO : INFO     : | Munch({'ip': '1.1.0.2', 'mask': '255.255.255.0'})}), 'password': 'phone', 'wavFile': 'Tryst-with-destiny-  |
+08-06-18 17:44:49 TCH_AUTO : INFO     : | mono.wav', 'hostname': 'containter1', 'platform': 'linux'}), 'ExeServer': Munch({'interface':              |
+08-06-18 17:44:49 TCH_AUTO : INFO     : | Munch({'controlBridge': Munch({'ip': '10.78.192.119', 'mask': '255.255.192.0'})}), 'username': 'cpesit',   |
+08-06-18 17:44:49 TCH_AUTO : INFO     : | 'password': 'cpesit', 'hostname': 'Exe-server'}), 'lnx2': Munch({'username': 'phone', 'console': 'ssh      |
+08-06-18 17:44:49 TCH_AUTO : INFO     : | 10.78.192.121 22', 'interface': Munch({'pciEthernet2': Munch({'ip': '192.168.0.10', 'mask':                |
+08-06-18 17:44:49 TCH_AUTO : INFO     : | '255.255.255.0'}), 'onboardEthernet': Munch({'ip': '10.78.192.121', 'mask': '255.255.255.0'})}),           |
+08-06-18 17:44:49 TCH_AUTO : INFO     : | 'password': 'phone', 'wavFile': 'Tryst-with-destiny-mono.wav', 'hostname': 'containter2', 'platform':      |
+08-06-18 17:44:49 TCH_AUTO : INFO     : | 'linux'})})                                                                                                |
+08-06-18 17:44:49 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:49 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:49 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:49 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:49 TCH_AUTO : INFO     : | Connect to devices                                                                                         |
+08-06-18 17:44:49 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:49 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:49 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:49 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:49 TCH_AUTO : INFO     : | uname -a                                                                                                   |
+08-06-18 17:44:49 TCH_AUTO : INFO     : | Linux containter1 4.9.0-6-amd64 #1 SMP Debian 4.9.82-1+deb9u3 (2018-03-02) x86_64 GNU/Linux                |
+08-06-18 17:44:49 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:49 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:49 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:49 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:49 TCH_AUTO : INFO     : | uname -a                                                                                                   |
+08-06-18 17:44:49 TCH_AUTO : INFO     : | Linux containter2 4.9.0-6-amd64 #1 SMP Debian 4.9.82-1+deb9u3 (2018-03-02) x86_64 GNU/Linux                |
+08-06-18 17:44:49 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:49 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | uname -a                                                                                                   |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Linux containter1 4.9.0-6-amd64 #1 SMP Debian 4.9.82-1+deb9u3 (2018-03-02) x86_64 GNU/Linux                |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | uname -a                                                                                                   |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Linux containter2 4.9.0-6-amd64 #1 SMP Debian 4.9.82-1+deb9u3 (2018-03-02) x86_64 GNU/Linux                |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : 
+08-06-18 17:44:50 TCH_AUTO : INFO     : ##############################################################################################################
+08-06-18 17:44:50 TCH_AUTO : INFO     : ## Check validations in two linux machines                                                                  ##
+08-06-18 17:44:50 TCH_AUTO : INFO     : ##############################################################################################################
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | killall pulseaudio                                                                                         |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | pulseaudio: no process found                                                                               |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | killall pulseaudio                                                                                         |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | pulseaudio: no process found                                                                               |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | pulseaudio -D                                                                                              |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | pulseaudio -D                                                                                              |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | pactl list sources                                                                                         |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Source #0                                                                                                  |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         State: IDLE                                                                                        |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Name: auto_null.monitor                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Description: Monitor of Dummy Output                                                               |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Driver: module-null-sink.c                                                                         |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Sample Specification: s16le 2ch 44100Hz                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Channel Map: front-left,front-right                                                                |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Owner Module: 10                                                                                   |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Mute: no                                                                                           |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Volume: front-left: 65536 / 100% / 0.00 dB,   front-right: 65536 / 100% / 0.00 dB                  |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 balance 0.00                                                                               |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Base Volume: 65536 / 100% / 0.00 dB                                                                |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Monitor of Sink: auto_null                                                                         |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Latency: 0 usec, configured 2000000 usec                                                           |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Flags: DECIBEL_VOLUME LATENCY                                                                      |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Properties:                                                                                        |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 device.description = "Monitor of Dummy Output"                                             |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 device.class = "monitor"                                                                   |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 device.icon_name = "audio-input-microphone"                                                |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Formats:                                                                                           |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 pcm                                                                                        |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Name: auto_null.monitor - present as expected in containter1                                               |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | pactl list sources                                                                                         |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Source #0                                                                                                  |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         State: IDLE                                                                                        |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Name: auto_null.monitor                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Description: Monitor of Dummy Output                                                               |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Driver: module-null-sink.c                                                                         |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Sample Specification: s16le 2ch 44100Hz                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Channel Map: front-left,front-right                                                                |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Owner Module: 10                                                                                   |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Mute: no                                                                                           |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Volume: front-left: 65536 / 100% / 0.00 dB,   front-right: 65536 / 100% / 0.00 dB                  |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 balance 0.00                                                                               |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Base Volume: 65536 / 100% / 0.00 dB                                                                |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Monitor of Sink: auto_null                                                                         |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Latency: 0 usec, configured 2000000 usec                                                           |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Flags: DECIBEL_VOLUME LATENCY                                                                      |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Properties:                                                                                        |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 device.description = "Monitor of Dummy Output"                                             |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 device.class = "monitor"                                                                   |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 device.icon_name = "audio-input-microphone"                                                |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Formats:                                                                                           |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 pcm                                                                                        |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Name: auto_null.monitor - present as expected in containter2                                               |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | pactl list sinks                                                                                           |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Sink #0                                                                                                    |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         State: IDLE                                                                                        |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Name: auto_null                                                                                    |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Description: Dummy Output                                                                          |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Driver: module-null-sink.c                                                                         |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Sample Specification: s16le 2ch 44100Hz                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Channel Map: front-left,front-right                                                                |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Owner Module: 10                                                                                   |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Mute: no                                                                                           |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Volume: front-left: 65536 / 100% / 0.00 dB,   front-right: 65536 / 100% / 0.00 dB                  |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 balance 0.00                                                                               |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Base Volume: 65536 / 100% / 0.00 dB                                                                |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Monitor Source: auto_null.monitor                                                                  |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Latency: 2157784 usec, configured 2000000 usec                                                     |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Flags: DECIBEL_VOLUME LATENCY                                                                      |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Properties:                                                                                        |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 device.description = "Dummy Output"                                                        |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 device.class = "abstract"                                                                  |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 device.icon_name = "audio-card"                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Formats:                                                                                           |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 pcm                                                                                        |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Driver: module-null-sink.c - present as expected in containter1                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | pactl list sinks                                                                                           |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Sink #0                                                                                                    |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         State: IDLE                                                                                        |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Name: auto_null                                                                                    |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Description: Dummy Output                                                                          |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Driver: module-null-sink.c                                                                         |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Sample Specification: s16le 2ch 44100Hz                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Channel Map: front-left,front-right                                                                |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Owner Module: 10                                                                                   |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Mute: no                                                                                           |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Volume: front-left: 65536 / 100% / 0.00 dB,   front-right: 65536 / 100% / 0.00 dB                  |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 balance 0.00                                                                               |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Base Volume: 65536 / 100% / 0.00 dB                                                                |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Monitor Source: auto_null.monitor                                                                  |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Latency: 2172455 usec, configured 2000000 usec                                                     |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Flags: DECIBEL_VOLUME LATENCY                                                                      |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Properties:                                                                                        |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 device.description = "Dummy Output"                                                        |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 device.class = "abstract"                                                                  |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 device.icon_name = "audio-card"                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |         Formats:                                                                                           |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                 pcm                                                                                        |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Driver: module-null-sink.c - present as expected in containter2                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : 
+08-06-18 17:44:50 TCH_AUTO : INFO     : ##############################################################################################################
+08-06-18 17:44:50 TCH_AUTO : INFO     : ## create virtual mic/speaker on two linux machines                                                         ##
+08-06-18 17:44:50 TCH_AUTO : INFO     : ##############################################################################################################
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | pactl load-module module-null-sink sink_name=fakemic                                                       |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | 19                                                                                                         |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | pactl load-module module-null-sink sink_name=fakemic                                                       |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | 19                                                                                                         |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | pactl load-module module-null-sink sink_name=fakespeaker                                                   |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | 20                                                                                                         |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | pactl load-module module-null-sink sink_name=fakespeaker                                                   |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | 20                                                                                                         |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | pactl list short sources                                                                                   |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | 1       fakemic.monitor module-null-sink.c      s16le 2ch 44100Hz       IDLE                               |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | 2       fakespeaker.monitor     module-null-sink.c      s16le 2ch 44100Hz       IDLE                       |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | fakemic.monitor - present as expected in containter1                                                       |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | fakespeaker.monitor - present as expected in containter1                                                   |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | pactl list short sources                                                                                   |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | 1       fakemic.monitor module-null-sink.c      s16le 2ch 44100Hz       IDLE                               |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | 2       fakespeaker.monitor     module-null-sink.c      s16le 2ch 44100Hz       IDLE                       |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | fakemic.monitor - present as expected in containter2                                                       |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | fakespeaker.monitor - present as expected in containter2                                                   |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : 
+08-06-18 17:44:50 TCH_AUTO : INFO     : ##############################################################################################################
+08-06-18 17:44:50 TCH_AUTO : INFO     : ## TestRun - Start                                                                                          ##
+08-06-18 17:44:50 TCH_AUTO : INFO     : ##############################################################################################################
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | rm -f received.wav                                                                                         |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | killall linphone linphonec                                                                                 |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | linphone: no process found                                                                                 |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | linphonec: no process found                                                                                |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | linphonec                                                                                                  |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Ready                                                                                                      |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Warning: video is disabled in , use -V or -C or -D to enable.                                              |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Linphone started successfully in containter1                                                               |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |  soundcard use files                                                                                       |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Using wav files instead of soundcard.                                                                      |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Linphone started Using wav files instead of soundcard in containter1                                       |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | rm -f received.wav                                                                                         |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | killall linphone linphonec                                                                                 |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | linphone: no process found                                                                                 |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | linphonec: no process found                                                                                |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | linphonec                                                                                                  |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Ready                                                                                                      |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Warning: video is disabled in , use -V or -C or -D to enable.                                              |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Linphone started successfully in containter2                                                               |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |  soundcard use files                                                                                       |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Using wav files instead of soundcard.                                                                      |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Linphone started Using wav files instead of soundcard in containter2                                       |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | sox --i -D Tryst-with-destiny-mono.wav                                                                     |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | 280.999188                                                                                                 |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |  autoanswer enable                                                                                         |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Auto answer enabled.                                                                                       |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Auto answer enabled successfully in containter1                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |  call sip:1.1.0.2                                                                                          |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Establishing call id to <sip:1.1.0.2>, assigned id 1                                                       |
+08-06-18 17:44:50 TCH_AUTO : INFO     : | Contacting <sip:1.1.0.2>                                                                                   |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |  calls                                                                                                     |
+08-06-18 17:44:50 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:50 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:50 TCH_AUTO : INFO     : 
+08-06-18 17:44:50 TCH_AUTO : ERROR    : >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+08-06-18 17:44:50 TCH_AUTO : ERROR    : >> .*<sip:1.1.0.2>.*StreamsRunning - absent which is not expected in containter2                            >>
+08-06-18 17:44:50 TCH_AUTO : ERROR    : >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+08-06-18 17:44:55 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:55 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:55 TCH_AUTO : INFO     : |  Media streams established with <sip:1.1.0.2> for call 1 (audio).                                          |
+08-06-18 17:44:55 TCH_AUTO : INFO     : | calls                                                                                                      |
+08-06-18 17:44:55 TCH_AUTO : INFO     : |  Media streams established with <sip:1.1.0.2> for call 1 (audio).                                          |
+08-06-18 17:44:55 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:44:55 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:44:55 TCH_AUTO : INFO     : 
+08-06-18 17:44:55 TCH_AUTO : ERROR    : >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+08-06-18 17:44:55 TCH_AUTO : ERROR    : >> .*<sip:1.1.0.2>.*StreamsRunning - absent which is not expected in containter2                            >>
+08-06-18 17:44:55 TCH_AUTO : ERROR    : >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+08-06-18 17:45:00 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:45:00 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:45:00 TCH_AUTO : INFO     : |  calls                                                                                                     |
+08-06-18 17:45:00 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:45:00 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:45:00 TCH_AUTO : INFO     : 
+08-06-18 17:45:00 TCH_AUTO : ERROR    : >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+08-06-18 17:45:00 TCH_AUTO : ERROR    : >> .*<sip:1.1.0.2>.*StreamsRunning - absent which is not expected in containter2                            >>
+08-06-18 17:45:00 TCH_AUTO : ERROR    : >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+08-06-18 17:45:05 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:45:05 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:45:05 TCH_AUTO : INFO     : |  calls                                                                                                     |
+08-06-18 17:45:05 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:45:05 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:45:05 TCH_AUTO : INFO     : 
+08-06-18 17:45:05 TCH_AUTO : ERROR    : >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+08-06-18 17:45:05 TCH_AUTO : ERROR    : >> .*<sip:1.1.0.2>.*StreamsRunning - absent which is not expected in containter2                            >>
+08-06-18 17:45:05 TCH_AUTO : ERROR    : >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+08-06-18 17:45:10 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:45:10 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:45:10 TCH_AUTO : INFO     : |  calls                                                                                                     |
+08-06-18 17:45:10 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:45:10 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:45:10 TCH_AUTO : INFO     : 
+08-06-18 17:45:10 TCH_AUTO : ERROR    : >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+08-06-18 17:45:10 TCH_AUTO : ERROR    : >> .*<sip:1.1.0.2>.*StreamsRunning - absent which is not expected in containter2                            >>
+08-06-18 17:45:10 TCH_AUTO : ERROR    : >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+08-06-18 17:45:15 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:45:15 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:45:15 TCH_AUTO : INFO     : |  calls                                                                                                     |
+08-06-18 17:45:15 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:45:15 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:45:15 TCH_AUTO : INFO     : 
+08-06-18 17:45:15 TCH_AUTO : ERROR    : >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+08-06-18 17:45:15 TCH_AUTO : ERROR    : >> .*<sip:1.1.0.2>.*StreamsRunning - absent which is not expected in containter2                            >>
+08-06-18 17:45:15 TCH_AUTO : ERROR    : >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+08-06-18 17:45:20 TCH_AUTO : INFO     : 
+08-06-18 17:45:20 TCH_AUTO : ERROR    : >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+08-06-18 17:45:20 TCH_AUTO : ERROR    : >> Playback and recording was not completed in expected time                                                >>
+08-06-18 17:45:20 TCH_AUTO : ERROR    : >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+08-06-18 17:45:20 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:45:20 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:45:20 TCH_AUTO : INFO     : |  Call 1 terminate                                                                                          |
+08-06-18 17:45:20 TCH_AUTO : INFO     : |  Call 1 with <sip:phone@10.78.192.121> connected.                                                          |
+08-06-18 17:45:20 TCH_AUTO : INFO     : | Media streams established with <sip:phone@10.78.192.121> for call 1 (audio).                               |
+08-06-18 17:45:20 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:45:20 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:45:25 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:45:25 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:45:25 TCH_AUTO : INFO     : |  Call 1 with <sip:phone@10.78.192.121> ended (No error).                                                   |
+08-06-18 17:45:25 TCH_AUTO : INFO     : | linphonec> quit                                                                                            |
+08-06-18 17:45:25 TCH_AUTO : INFO     : |  Call 1 with <sip:phone@10.78.192.121> ended (No error).                                                   |
+08-06-18 17:45:25 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:45:25 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:45:30 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:45:30 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:45:30 TCH_AUTO : INFO     : |  Call terminated.                                                                                          |
+08-06-18 17:45:30 TCH_AUTO : INFO     : | linphonec> Call 1 with <sip:1.1.0.2> ended (No error).                                                     |
+08-06-18 17:45:30 TCH_AUTO : INFO     : | terminate                                                                                                  |
+08-06-18 17:45:30 TCH_AUTO : INFO     : |  Call d.                                                                                                   |
+08-06-18 17:45:30 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:45:30 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:45:35 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:45:35 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:45:35 TCH_AUTO : INFO     : |  terminate                                                                                                 |
+08-06-18 17:45:35 TCH_AUTO : INFO     : | No active calls                                                                                            |
+08-06-18 17:45:35 TCH_AUTO : INFO     : | linphonec> quit                                                                                            |
+08-06-18 17:45:35 TCH_AUTO : INFO     : |  terminate                                                                                                 |
+08-06-18 17:45:35 TCH_AUTO : INFO     : | No active calls                                                                                            |
+08-06-18 17:45:35 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:45:35 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:45:40 TCH_AUTO : INFO     : 
+08-06-18 17:45:40 TCH_AUTO : INFO     : ##############################################################################################################
+08-06-18 17:45:40 TCH_AUTO : INFO     : ## Common CleanUP - Start                                                                                   ##
+08-06-18 17:45:40 TCH_AUTO : INFO     : ##############################################################################################################
+08-06-18 17:45:40 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
+08-06-18 17:45:40 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:45:40 TCH_AUTO : INFO     : |  quit                                                                                                      |
+08-06-18 17:45:40 TCH_AUTO : INFO     : | Terminating...                                                                                             |
+08-06-18 17:45:40 TCH_AUTO : INFO     : | phone@containter1:~$ terminate                                                                             |
+08-06-18 17:45:40 TCH_AUTO : INFO     : |  quit                                                                                                      |
+08-06-18 17:45:40 TCH_AUTO : INFO     : | Terminating...                                                                                             |
+08-06-18 17:45:40 TCH_AUTO : INFO     : |                                                                                                            |
+08-06-18 17:45:40 TCH_AUTO : INFO     : +------------------------------------------------------------------------------------------------------------+
