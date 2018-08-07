@@ -1,0 +1,7 @@
+#Config file for Logs.py
+
+LogFile:
+    List: [/home/iswarya/Dakshin-logs-2018-5-10/Suresh/topnoisy_0515/noisylogs_8840.txt]
+    RebootFirstLIne: Kernel Diagnostic Report|Reboot Failure Report|Diagnostics Failure Report|PowerTV Diagnostic Report|PowerTV Post-reboot Diagnostic Report
+    Reasons: [ ]
+    HWModel:

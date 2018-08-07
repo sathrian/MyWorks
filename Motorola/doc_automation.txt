@@ -1,0 +1,95 @@
+﻿1. make a folder (mkdir folder_name)
+2. inside the folder, run the following:
+repo init -u git://codeaurora.org/platform/manifest.git -b release -m LA.UM.6.7.r1-04900-8x09.0.xml --repo-url=git://codeaurora.org/tools/repo.git --repo-branch=caf-stable
+3. repo sync
+4. install 'open JDK 8' in /usr/lib/jvm
+5. compile the code using the following commands:
+	a. export PATH=<path where jdk 8 is installed>/bin:$PATH
+	b. source build/envsetup.sh
+	c. choosecombo 1 msm8909 userdebug
+	d make -j4
+	
+	
+Additional installation required:
+	
+	•	Install Python.
+		a] sudo apt-get install build-essential gcc
+		b] wget http://www.python.org/ftp/python/2.7.6/Python-2.7.6.tgz
+		c] tar -xvzf Python-2.7.6.tgz
+		d] cd Python-2.7.6
+		e] ./configure --prefix=/usr/local/python2.7
+		f] make
+		g] make install
+		h] sudo ln -s /usr/local/python2.7/bin/python /usr/bin/python2.7
+
+
+ 
+•	 Install and Configure GNU Make (use only make-3.81; this was designed for android)
+		a] wget -o make.tar.gz http://ftp.gnu.org/gnu/make/make-3.81.tar.gz
+		b] tar -xvzf make-3.81.tar.gz
+		c] cd make-3.81
+		d] ./configure
+		e] sudo make install
+
+
+•	Installing Required Packages
+		a] Open terminal and execute given commands sequentially.
+		b] sudo apt-get install git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev libc6-dev libncurses5-dev x11proto-core-dev libx11-dev libreadline6-dev libgl1-mesa-dev tofrodos python-markdown libxml2-utils xsltproc pngcrush gcc-multilib lib32z1 schedtool
+
+	Note: This line contains multiple tools which are going to install simultaneously.
+	            You can install the same tools sequentially also.
+
+		e] sudo apt-get install uuid uuid-dev
+		f] sudo apt-get install zlib1g-dev liblz-dev
+		g] sudo apt-get install liblzo2-2 liblzo2-dev
+		h] sudo add-apt-repository ppa:git-core/ppa
+		i] sudo apt-get update
+		j] sudo apt-get install git-core curl
+		k] sudo apt-get install u-boot-tools
+		l] sudo apt-get install cbootimage
+		i] sudo apt-get install dfu-util
+        	m] sudo apt-get install libterm-twiddle-perl
+		o]sudo apt-get install original-awk
+		p] sudo apt-get install cl-awk
+		q] sudo apt-get install dpkg-awk
+		r] sudo apt-get install gawk
+		s] sudo apt-get install mawk
+		t] sudo apt-get install sed
+		u] sudo apt-get install ssed
+		v] sudo apt-get install abootimg
+                     w] sudo apt-get install lib32stdc++6 lib32z1 lib32z1-dev
+
+
+
+
+•	Installing Repo Package [ Follow this step if needed ]
+	a] mkdir ~/bin
+	b] PATH=~/bin:$PATH
+c] curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+	d] chmod a+x ~/bin/repo
+
+
+
+•	Packages Needed For Ubuntu 14.04 Trusty Tar
+		a] libmodule-cpafile-perl
+		b] cpanminus
+		c] pmuninstall
+		d] libperl
+		e] libperl-dev
+		f] libperl-apireference-perl
+		g] libperl5.18
+		h] libperl6-caller-perl
+		i] libperlio-gzip-perl
+		j] libperl4-corelibs-perl
+		k] libperl5i-perl
+		l] perl-base
+		m] libxml-perl
+		n] libfile-find-rule-perl-perl
+		o] libprobe-perl-perl
+		p] libmodern-perl-perl
+		q] perl-modules
+
+  
+•	Install Git :
+                              sudo apt-get install git  
+ 

@@ -1,0 +1,22 @@
+#Config file for Moto.py
+
+Git:
+    RepoURL:        ssh://10.20.8.250:29418/android_m/hlos/quartz_O_hlos.git
+    RepoBranch:     quartz_O_main
+    ManifestURL:    ssh://10.20.8.250:29418/android_m/hlos/platform/manifest.git
+    ManifestFile:   LA.UM.6.7.r1-04900-8x09.0.xml
+    ManifestBranch: release
+    ChooseCombo:    1 msm8909 1
+    Make:           -j64
+    Folder:         quartz_O_hlos
+    Clone:          True
+    
+# Do not modify below unless required.
+Reports:
+    
+    Recepients:     [Sagar.Bheda@LNTTECHSERVICES.COM,Suresh.Subramanian@LNTTECHSERVICES.COM,]
+    Subject:        Moto-Code Versioning Script
+    MailServer:     mail.ltindia.com
+    SmtpPort:       25
+    DeleteLogFile:  False
+    
