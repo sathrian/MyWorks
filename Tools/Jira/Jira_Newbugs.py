@@ -12,9 +12,8 @@ def send_slack_message(text, tkn='T1A'):
 jira_connection = JIRA(
     options={'server': 'https://jira-dc.pa.com/', 'verify': False},
     token_auth='auth')
-    # token_auth='NDc1Mzk1MTgyNDM4OjncOun4vjyy89u0c/1En059Zn2P')
-issues1 = jira_connection.search_issues('project = PAN-OS AND type = Bug AND "Issue Found By" = CPT-ENG AND created >= -1h ORDER BY created DESC')
-issues = jira_connection.search_issues('reporter in membersOf("DL Arulshankar Sathuragiri - All") AND type = Bug AND "Issue Found By" = CPT-ENG AND created >= -1h  ORDER BY created DESC')
+issues1 = jira_connection.search_issues('created >= -1h ORDER BY created DESC')
+issues = jira_connection.search_issues('  ORDER BY created DESC')
 if issues:
     bugs = {}
     msg = f'*New Bug Alert!!!:*\n'
@@ -26,7 +25,7 @@ if issues:
             version = ver.name + ', ' + version
         summary = issue.fields.summary
         bugFormat = str(
-            f'<https://jira-dc.paloaltonetworks.com/browse/{issue.key}|{issue.key}> - {priority} - {version} - {summary}')
+            f'<https://jira-dc.pa.com/browse/{issue.key}|{issue.key}> - {priority} - {version} - {summary}')
         if reporter not in bugs.keys():
             bugs.update({reporter:[bugFormat]})
         else:
@@ -48,7 +47,7 @@ if issues1:
             version = ver.name + ', '+version
         summary = issue.fields.summary
         bugFormat = str(
-            f'<https://jira-dc.paloaltonetworks.com/browse/{issue.key}|{issue.key}> - {priority} - {version} - {summary}')
+            f'<https://jira-dc.pa.com/browse/{issue.key}|{issue.key}> - {priority} - {version} - {summary}')
         if reporter not in bugs.keys():
             bugs.update({reporter:[bugFormat]})
         else:
